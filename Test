@@ -194,3 +194,15 @@ btns:Button(
 		fruitsUI.Visible = true
     end
 )
+
+btns:Button(
+    "TripleLuck",
+    function()
+		local player = game.Players.LocalPlayer
+		local playerGui = player.PlayerGui
+
+		local xmasplaytimerewardsUI = playerGui:WaitForChild("UI"):WaitForChild("Frames"):WaitForChild("XmasPlaytimeRewardsUI")
+
+		xmasplaytimerewardsUI.Visible = true
+    end
+)
