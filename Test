@@ -1,0 +1,196 @@
+local DiscordLib =
+    loadstring(game:HttpGet "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
+
+local win = DiscordLib:Window("TheLiteBall")
+
+local serv = win:Server("Main", "")
+
+local btns = serv:Channel("Teleports")
+
+btns:Button(
+    "Teleport to Trading Lobby",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to Trading Lobby", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 15346670220
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Button(
+    "Teleport to Clan HQ",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to Clan HQ", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 15345591047
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Button(
+    "Teleport to One Life Lobby",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to One Life Lobby", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 15566552620
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Button(
+    "Teleport to Raid Lobby",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to Raid Lobby", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 16077173181
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Button(
+    "Teleport to Pro Lobby",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to Pro Lobby", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 15191600573
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Button(
+    "Teleport to VC Lobby",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to VC Lobby", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 15572953384
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Button(
+    "Teleport to Death Ball Main Lobby",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to Death Ball Main Lobby", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 15002061926
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Button(
+    "Teleport to AFK Lobby",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to AFK Lobby", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 16554222704
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Seperator("Closed Place")
+
+btns:Button(
+    "Teleport to Tutorial Lobby",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to Tutorial Lobby", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 16022223580
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+btns:Button(
+    "Teleport to Ranked",
+    function()
+        DiscordLib:Notification("Notification", "Teleport to Ranked", "Okay!")
+		local TeleportService = game:GetService("TeleportService")
+		local PlaceId = 15558626179
+
+		TeleportService:Teleport(PlaceId, game.Players.LocalPlayer)
+    end
+)
+
+local btns = serv:Channel("Tools")
+
+btns:Button(
+    "Invisible",
+    function()
+        DiscordLib:Notification("Notification", "Keybind G, DONT DASH IN IVIS", "Okay!")
+		loadstring(game:HttpGet('https://pastebin.com/raw/3Rnd9rHf'))()
+    end
+)
+
+btns:Button(
+    "Infinity yeld",
+    function()
+        DiscordLib:Notification("Notification", "Its a very Good script)", "Okay!")
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end
+)
+
+btns:Button(
+    "Dex Explorer v4",
+    function()
+        DiscordLib:Notification("Notification", "Watch game files and finds bugs", "Okay!")
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/nuIIism/scripts/main/dex.lua"))()
+    end
+)
+
+btns:Button(
+    "Copy Game to Exploit Workspace",
+    function()
+        DiscordLib:Notification("Notification", "Warning this tool download place to you PC", "Okay!")
+		saveinstance({decomptype = new})
+		Saveinstance()
+    end
+)
+
+btns:Button(
+    "Freecam Shift+p",
+    function()
+        DiscordLib:Notification("Notification", "KEYBIND SHIFT+P", "Okay!")
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/meow-TheLite/Freecam-Shift-P/refs/heads/main/Keybind%20Shift%2Bp"))()
+    end
+)
+
+local lbls = serv:Channel("Helps")
+
+lbls:Label("INVISIBLE, Keybind G")
+lbls:Label("INVISIBLE, Keybind G")
+
+local bnds = serv:Channel("Binds")
+
+bnds:Bind(
+    "FruitUI",
+    Enum.KeyCode.RightShift,
+    function()
+        print("Killed everyone!")
+    end
+)
+
+serv:Channel("By TheLite")
+
+win:Server("Game", "http://www.roblox.com/asset/?id=6031075938")
+
+local btns = serv:Channel("Tools")
+
+btns:Button(
+    "FruitUI",
+    function()
+		local player = game.Players.LocalPlayer
+		local playerGui = player.PlayerGui
+
+		local fruitsUI = playerGui:WaitForChild("UI"):WaitForChild("Frames"):WaitForChild("FruitsUI")
+
+		fruitsUI.Visible = true
+    end
+)
