@@ -146,6 +146,13 @@ btns:Button(
 )
 
 btns:Button(
+    "AntiAFK",
+    function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/luca5432/Roblox-ANTI-AFK-SCRIPT/refs/heads/main/Script"))()
+    end
+)
+
+btns:Button(
     "Copy Game to Exploit Workspace",
     function()
         DiscordLib:Notification("Notification", "Warning this tool download place to you PC", "Okay!")
@@ -167,21 +174,11 @@ local lbls = serv:Channel("Helps")
 lbls:Label("INVISIBLE, Keybind G")
 lbls:Label("INVISIBLE, Keybind G")
 
-local bnds = serv:Channel("Binds")
-
-bnds:Bind(
-    "FruitUI",
-    Enum.KeyCode.RightShift,
-    function()
-        print("Killed everyone!")
-    end
-)
-
 serv:Channel("By TheLite")
 
-win:Server("Game", "http://www.roblox.com/asset/?id=6031075938")
+local serv = win:Server("Interaction", "http://www.roblox.com/asset/?id=6031075938")
 
-local btns = serv:Channel("Tools")
+local btns = serv:Channel("GUI")
 
 btns:Button(
     "FruitUI",
@@ -204,5 +201,77 @@ btns:Button(
 		local xmasplaytimerewardsUI = playerGui:WaitForChild("UI"):WaitForChild("Frames"):WaitForChild("XmasPlaytimeRewardsUI")
 
 		xmasplaytimerewardsUI.Visible = true
+    end
+)
+
+local btns = serv:Channel("Open Packs")
+
+btns:Button(
+    "Solo Pack",
+    function()
+		function getNil(name,class) for _,v in pairs(getnilinstances())do if v.ClassName==class and v.Name==name then return v;end end end
+
+		local args = {
+    		[1] = "Solo Pack",
+    		[2] = 1
+		}
+
+		game:GetService("ReplicatedStorage").Remotes.PurchaseEgg:InvokeServer(unpack(args))
+    end
+)
+
+btns:Button(
+    "Light Pack",
+    function()
+		function getNil(name,class) for _,v in pairs(getnilinstances())do if v.ClassName==class and v.Name==name then return v;end end end
+
+		local args = {
+    		[1] = "Light Pack",
+    		[2] = 1
+		}
+
+		game:GetService("ReplicatedStorage").Remotes.PurchaseEgg:InvokeServer(unpack(args))
+    end
+)
+
+btns:Button(
+    "Mech Pack",
+    function()
+		function getNil(name,class) for _,v in pairs(getnilinstances())do if v.ClassName==class and v.Name==name then return v;end end end
+
+		local args = {
+    		[1] = "Mech Pack",
+    		[2] = 1
+		}
+
+		game:GetService("ReplicatedStorage").Remotes.PurchaseEgg:InvokeServer(unpack(args))
+    end
+)
+
+btns:Button(
+    "Spirit Pack",
+    function()
+		function getNil(name,class) for _,v in pairs(getnilinstances())do if v.ClassName==class and v.Name==name then return v;end end end
+
+		local args = {
+    		[1] = "Spirit Pack",
+    		[2] = 1
+		}
+
+		game:GetService("ReplicatedStorage").Remotes.PurchaseEgg:InvokeServer(unpack(args))
+    end
+)
+
+btns:Button(
+    "Premium Pack",
+    function()
+		function getNil(name,class) for _,v in pairs(getnilinstances())do if v.ClassName==class and v.Name==name then return v;end end end
+
+		local args = {
+    		[1] = "Premium Pack",
+    		[2] = 1
+		}
+
+		game:GetService("ReplicatedStorage").Remotes.PurchaseEgg:InvokeServer(unpack(args))
     end
 )
