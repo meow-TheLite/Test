@@ -9,7 +9,7 @@ end
 
 -- Переменные для управления циклом
 local isRunning = false
-local keyBind = "5" -- Клавиша для включения/выключения цикла
+local keyBind = "p" -- Клавиша для включения/выключения цикла
 
 -- Аргументы для InvokeServer
 local args = {
