@@ -1,0 +1,40 @@
+-- Функция для получения объекта по имени и классу
+function getNil(name, class)
+    for _, v in pairs(getnilinstances()) do
+        if v.ClassName == class and v.Name == name then
+            return v
+        end
+    end
+end
+
+-- Переменные для управления циклом
+local isRunning = false
+local keyBind = "6" -- Клавиша для включения/выключения цикла
+
+-- Аргументы для InvokeServer
+local args = {
+    [1] = "Light Pack",
+    [2] = 1
+}
+
+-- Цикл
+local function startLoop()
+    while isRunning do
+        -- Выполнение InvokeServer
+        game:GetService("ReplicatedStorage").Remotes.PurchaseEgg:InvokeServer(unpack(args))
+        wait(4) -- Задержка между вызовами (можно настроить)
+    end
+end
+
+-- Подключение клавиши
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and input.KeyCode == Enum.KeyCode[keyBind] then
+        isRunning = not isRunning
+        if isRunning then
+            print("Цикл Light запущен")
+            startLoop()
+        else
+            print("Цикл Light остановлен")
+        end
+    end
+end)
