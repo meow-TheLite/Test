@@ -1,0 +1,93 @@
+local Lighting = game:GetService("Lighting")
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+-- Создание GUI
+local Window = Rayfield:CreateWindow({
+    Name = "Настройки Освещения",
+    LoadingTitle = "Загрузка Rayfield",
+    LoadingSubtitle = "by Sirius",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "RayfieldConfigs",
+        FileName = "LightingSettings"
+    }
+})
+
+local LightingTab = Window:CreateTab("Освещение")
+
+-- Элементы UI
+LightingTab:CreateColorPicker({
+    Name = "Цвет окружения",
+    Info = "Настроить цвет окружающего света",
+    Color = Color3.fromRGB(100, 100, 255),
+    Callback = function(value)
+        Lighting.Ambient = value
+    end
+})
+
+LightingTab:CreateColorPicker({
+    Name = "Уличное освещение",
+    Info = "Настроить уличное освещение",
+    Color = Color3.fromRGB(50, 50, 100),
+    Callback = function(value)
+        Lighting.OutdoorAmbient = value
+    end
+})
+
+LightingTab:CreateColorPicker({
+    Name = "Цвет тумана",
+    Info = "Настроить цвет тумана",
+    Color = Color3.fromRGB(200, 200, 255),
+    Callback = function(value)
+        Lighting.FogColor = value
+    end
+})
+
+LightingTab:CreateSlider({
+    Name = "Начало тумана",
+    Info = "Задает начало тумана",
+    Range = {0, 1000},
+    Increment = 1,
+    Suffix = "м",
+    CurrentValue = 50,
+    Callback = function(value)
+        Lighting.FogStart = value
+    end
+})
+
+LightingTab:CreateSlider({
+    Name = "Конец тумана",
+    Info = "Задает конец тумана",
+    Range = {0, 1000},
+    Increment = 1,
+    Suffix = "м",
+    CurrentValue = 500,
+    Callback = function(value)
+        Lighting.FogEnd = value
+    end
+})
+
+LightingTab:CreateSlider({
+    Name = "Время суток",
+    Info = "Настроить время суток",
+    Range = {0, 24},
+    Increment = 0.1,
+    Suffix = "ч",
+    CurrentValue = 14,
+    Callback = function(value)
+        Lighting.ClockTime = value
+    end
+})
+
+LightingTab:CreateSlider({
+    Name = "Яркость",
+    Info = "Настроить яркость освещения",
+    Range = {0, 10},
+    Increment = 0.1,
+    Suffix = "x",
+    CurrentValue = 2,
+    Callback = function(value)
+        Lighting.Brightness = value
+    end
+})
+
+print("Rayfield UI загружен и настройки освещения применены!")
