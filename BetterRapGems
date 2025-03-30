@@ -1,0 +1,78 @@
+local Players = game:GetService("Players")
+local workspace = game:GetService("Workspace")
+
+local function formatNumber(value)
+    if value >= 1000000 then
+        return string.format("%.1fM", value / 1000000)
+    elseif value >= 1000 then
+        return string.format("%.1fK", value / 1000)
+    else
+        return tostring(value)
+    end
+end
+
+local function updatePlayerInfo(player)
+    if not player.Character then return end
+
+    local leaderstats = player:FindFirstChild("leaderstats")
+    if not leaderstats then return end
+
+    local gemsStat = leaderstats:FindFirstChild("💎 Gems")
+    local rapStat = leaderstats:FindFirstChild("📈 RAP")
+    
+    local gemsValue = gemsStat and formatNumber(gemsStat.Value) or "0"
+    local rapValue = rapStat and formatNumber(rapStat.Value) or "0"
+
+    local character = player.Character
+    local head = character:FindFirstChild("Head")
+    if not head then return end
+    
+    local playerBillboard = head:FindFirstChild("PlayerBillboard")
+    if not playerBillboard then return end
+    
+    local nameLine = playerBillboard:FindFirstChild("NameLine")
+    if not nameLine then return end
+    
+    local playerInfo = nameLine:FindFirstChild("PlayerInfo")
+    if playerInfo then
+        playerInfo.Text = string.format(
+            "<b>%s</b> | <i><font color=\"rgb(183,255,191)\">💎 GEMS: %s | 📈 RAP: %s</font></i>",
+            player.Name, gemsValue, rapValue
+        )
+    end
+end
+
+local function trackLeaderstats(player)
+    local leaderstats = player:FindFirstChild("leaderstats")
+    if not leaderstats then return end
+
+    local gemsStat = leaderstats:FindFirstChild("💎 Gems")
+    local rapStat = leaderstats:FindFirstChild("📈 RAP")
+
+    if gemsStat then
+        gemsStat.Changed:Connect(function()
+            updatePlayerInfo(player)
+        end)
+    end
+
+    if rapStat then
+        rapStat.Changed:Connect(function()
+            updatePlayerInfo(player)
+        end)
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        task.wait(1)
+        updatePlayerInfo(player)
+        trackLeaderstats(player)
+    end)
+end)
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player.Character then
+        updatePlayerInfo(player)
+        trackLeaderstats(player)
+    end
+end
